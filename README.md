@@ -1,17 +1,27 @@
 # Everseat-ember-cli-pubnub
 
-This README outlines the details of collaborating on this Ember addon.
+This is the addon for using pubnub with Ember on the everseat projects.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+In the ember project, run:
 
-## Running
+* `ember install everseat/everseat-ember-cli-pubnub`
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+## Configuration
+
+Add to the `config/environment.js`
+
+```
+  var ENV = {
+    // Other configuration settings...
+    pubnub: {
+      subscribe_key: 'sub-c-4997630a-8794-11e4-9085-02ee2ddab7fe',
+      restore: true,
+      ssl: true
+    }
+  };
+```
 
 ## Running Tests
 
@@ -19,8 +29,13 @@ This README outlines the details of collaborating on this Ember addon.
 * `ember test`
 * `ember test --server`
 
-## Building
-
-* `ember build`
-
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+
+## Development
+
+* Clone the project locally
+* Change directory to the EMBER project folder
+* Remove the existing node_modules directory
+* THEN link to the local project using `npm link [local-project-dir]/everseat-ember-cli-pubnub`
+* And enable live-reloading by editing `everseat-ember-cli-pubnub/index.js` and change the isDevelopingAddon. [http://ember-cli.com/extending/#link-to-addon-while-developing]

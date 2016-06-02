@@ -10,6 +10,7 @@ const PubNubService = Ember.Object.extend(Ember.Evented, {
   cfg: null,
 
   init() {
+    Ember.assert('PubNub configuration is set. See README.md for everseat-ember-cli-pubnub', Config.pubnub !== undefined);
     this.set('cfg', Config.pubnub);
     if (!this.get('cfg')) {
       throw 'no pubnub configuration `cfg` provided!';
