@@ -49,20 +49,25 @@ For components use:
 `import PubnubComponentMixin from 'everseat-ember-cli-pubnub/mixins/pubnub-component-mixin';`
 
 For routes use:
+
 `import PubnubRouteMixin from 'everseat-ember-cli-pubnub/mixins/pubnub-route-mixin';`
 
-Then you need to define two properties:
+Then you need to define two properties and the action handler:
 
 * *pubnubChannel*: the name of the channel to subscribe
 * *pubnubActionHandler*: the name of the action to handle responses from pubnub
 
-*pubnubActionHandler* definition looks like:
 
+Example:
 ```
+pubnubChannel: 'seats-updates',
+pubnubActionHandler: 'messageHandler',
+
 actions: {
   ...
   messageHandler(message) {
    // do what you want with the message
   },
   ...
+}
 ```
