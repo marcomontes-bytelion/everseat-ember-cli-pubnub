@@ -1,6 +1,6 @@
 {
   "name": "everseat-ember-cli-pubnub",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
