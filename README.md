@@ -39,3 +39,6 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 * Remove the existing node_modules directory
 * THEN link to the local project using `npm link [local-project-dir]/everseat-ember-cli-pubnub`
 * And enable live-reloading by editing `everseat-ember-cli-pubnub/index.js` and change the isDevelopingAddon. [http://ember-cli.com/extending/#link-to-addon-while-developing]
+
+## Usage
+

@@ -4,7 +4,7 @@
 module.exports = {
   name: 'everseat-ember-cli-pubnub',
   isDevelopingAddon: function() {
-    return false; // change this to true if you're developing
+    return true; // set this to true for development
   },
   included: function(app, parentAddon) {
     var target = (parentAddon || app);
