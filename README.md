@@ -52,22 +52,20 @@ For routes use:
 
 `import PubnubRouteMixin from 'everseat-ember-cli-pubnub/mixins/pubnub-route-mixin';`
 
-Then you need to define two properties and the action handler:
-
-* *pubnubChannel*: the name of the channel to subscribe
-* *pubnubActionHandler*: the name of the action to handle responses from pubnub
-
-
 Example:
 ```
-pubnubChannel: 'seats-updates',
-pubnubActionHandler: 'messageHandler',
+pubnubChannel: 'seats-updates',  // The name of the pubnub channel to listen for
+pubnubActionHandler: 'messageHandler', // The name of the actions handler to process the message
 
 actions: {
   ...
   messageHandler(message) {
-   // do what you want with the message
+   // process the message from pubnub
   },
   ...
 }
 ```
+
+**Important**
+
+If you override a component's *didInsertElement* or *willDestroyElement* or route's *activate* or *deactivate* hooks, don't forget to apply `this._super(...arguments)` to the end of your overridden function.
