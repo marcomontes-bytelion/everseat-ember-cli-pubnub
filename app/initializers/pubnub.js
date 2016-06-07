@@ -3,7 +3,7 @@
 import PubNub from '../services/pubnub';
 export default {
   name: 'pubnub-service',
-  initialize(container, application) {
+  initialize(application) {
     application.register('pubnub:main', PubNub, { singleton: true });
     application.inject('controller', 'pubnub', 'pubnub:main');
     application.inject('route', 'pubnub', 'pubnub:main');
