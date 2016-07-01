@@ -9,7 +9,7 @@ export default Ember.Mixin.create({
   },
 
   deactivate() {
-    Ember.Logger.debug('route mixin deactivate');
+    Ember.debug('route mixin deactivate');
     const pubnubChannel = this.get('pubnubChannel');
     Ember.assert("Deactivate failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
         pubnubChannel);
@@ -19,7 +19,7 @@ export default Ember.Mixin.create({
   },
 
   activate() {
-    Ember.Logger.debug('route mixin subscribing');
+    Ember.debug('route mixin subscribing');
     const pubnubChannel = this.get('pubnubChannel');
     const pubnubActionHandler = this.get('pubnubActionHandler');
     Ember.assert("Subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
