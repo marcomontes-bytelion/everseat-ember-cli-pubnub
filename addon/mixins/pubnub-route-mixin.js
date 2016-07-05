@@ -30,7 +30,9 @@ export default Ember.Mixin.create({
     const self = this;
     pn.emSubscribe({
       channel: pubnubChannel,
-      message: ([message]) => {
+      message: (args) => {
+        Ember.debug(`pubnub route response: ${args.length}`);
+        const message = (args.length > 0 && args[0] !== undefined) ? args[0] : {};
         this.messageHandler(message, self, pubnubActionHandler);
       }
     });
