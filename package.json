@@ -1,7 +1,7 @@
 {
   "name": "everseat-ember-cli-pubnub",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Everseat pubnub service for emberjs",
   "directories": {
     "doc": "doc",
