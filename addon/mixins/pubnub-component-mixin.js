@@ -9,7 +9,7 @@ export default Ember.Mixin.create({
   },
 
   didInsertElement() {
-    Ember.Logger.debug('component mixin subscribe');
+    Ember.debug('component mixin subscribe');
     const pubnubChannel = this.get('pubnubChannel');
     const pubnubActionHandler = this.get('pubnubActionHandler');
     Ember.assert("Subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
@@ -28,7 +28,7 @@ export default Ember.Mixin.create({
   },
 
   willDestroyElement() {
-    Ember.Logger.debug('component mixin unsubscribe');
+    Ember.debug('component mixin unsubscribe');
     const pubnubChannel = this.get('pubnubChannel');
     const pn = this.get('pushNotifications');
     pn.emUnsubscribe({ channel: pubnubChannel });
