@@ -10,5 +10,6 @@ module.exports = {
     var target = (parentAddon || app);
     this._super.included(target);
     target.import(app.bowerDirectory + '/pubnub/web/pubnub.min.js');
+    target.import('vendor/everseat-ember-cli-pubnub/register-version.js');
   }
 };
