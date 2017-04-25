@@ -11,19 +11,19 @@ export default Ember.Mixin.create({
 
   didRender() {
     if (!this.get('notificationsEnabled')) {
-      Ember.debug('component mixin subscribe');
+      Ember.debug('PUBNUB: component mixin subscribe');
       const pubnubChannel = this.get('pubnubChannel');
       const pubnubActionHandler = this.get('pubnubActionHandler');
-      Ember.assert("Subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
+      Ember.assert("PUBNUB: Component subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
           pubnubChannel);
-      Ember.assert("Subscribe failed. 'pubnubActionHandler' property is not defined. The name of the function defined in the { actions } paramters of the route",
+      Ember.assert("PUBNUB: Component subscribe failed. 'pubnubActionHandler' property is not defined. The name of the function defined in the { actions } paramters of the route",
           pubnubActionHandler);
       const pn = this.get('pushNotifications');
       const self = this;
       pn.emSubscribe({
         channel: pubnubChannel,
         message: (args) => {
-          const message = (args.length > 0 && args[0] !== undefined) ? args[0] : {};
+          const message = (args.message) ? args.message : {};
           this.messageHandler(message, self, pubnubActionHandler);
           self.set('notificationsEnabled', true);
         }
