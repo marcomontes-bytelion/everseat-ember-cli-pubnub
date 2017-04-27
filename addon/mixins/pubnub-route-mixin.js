@@ -9,9 +9,9 @@ export default Ember.Mixin.create({
   },
 
   deactivate() {
-    Ember.debug('route mixin deactivate');
+    Ember.debug('PUBNUB: route mixin deactivate');
     const pubnubChannel = this.get('pubnubChannel');
-    Ember.assert("Deactivate failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
+    Ember.assert("PUBNUB: Route mixin deactivate failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
         pubnubChannel);
     const pn = this.get('pushNotifications');
     pn.emUnsubscribe({ channel: pubnubChannel });
@@ -19,19 +19,19 @@ export default Ember.Mixin.create({
   },
 
   activate() {
-    Ember.debug('route mixin subscribing');
+    Ember.debug('PUBNUB: route mixin subscribing');
     const pubnubChannel = this.get('pubnubChannel');
     const pubnubActionHandler = this.get('pubnubActionHandler');
-    Ember.assert("Subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
+    Ember.assert("PUBNUB: Route mixin subscribe failed. 'pubnubChannel' property is not defined. It may either be a string or Ember.computed type",
         pubnubChannel);
-    Ember.assert("Subscribe failed. 'pubnubActionHandler' property is not defined. The name of the function defined in the { actions } paramters of the route",
+    Ember.assert("PUBNUB: Route mixin subscribe failed. 'pubnubActionHandler' property is not defined. The name of the function defined in the { actions } paramters of the route",
         pubnubActionHandler);
     const pn = this.get('pushNotifications');
     const self = this;
     pn.emSubscribe({
       channel: pubnubChannel,
       message: (args) => {
-        const message = (args.length > 0 && args[0] !== undefined) ? args[0] : {};
+        const message = (args.message) ? args.message : {};
         this.messageHandler(message, self, pubnubActionHandler);
       }
     });

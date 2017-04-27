@@ -1,1 +1,1 @@
-Ember.libraries.register('Everseat Ember CLI PubNub', '0.1.3');
+Ember.libraries.register('Everseat Ember CLI PubNub', '0.1.4');
