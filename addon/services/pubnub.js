@@ -7,8 +7,9 @@ const PubNubService = Ember.Service.extend(Ember.Evented, {
 
   init() {
     Ember.assert('PubNub configuration is not set. See README.md for everseat-ember-cli-pubnub', !Ember.isEmpty(Config.subscribe_key));
-    const pubnub = this.get('pubub');
+    const pubnub = this.get('pubnub');
     if (!pubnub) {
+      Ember.debug('PUBNUB: initializing pubnub service');
       const PubNub = new window.PubNub(Config);
       this.set('pubnub', PubNub);
     }
