@@ -1,5 +1,5 @@
 {
-  "name": "everseat-ember-cli-pubnub",
+  "name": "rel-everseat-ember-cli-pubnub",
   "private": true,
   "version": "0.2.0",
   "description": "Everseat pubnub service for emberjs",
@@ -44,6 +44,9 @@
   "keywords": [
     "ember-addon"
   ],
+  "publishConfig": {
+    "registry": "https://nexus.relatient.net/repository/npm-private/"
+  },
   "dependencies": {
     "ember-cli-babel": "^6.12.0"
   },
